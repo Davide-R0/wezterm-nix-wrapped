@@ -57,7 +57,49 @@ config.keys = keys
 
 -- Altre configurazioni standard Wezterm in puro Lua
 config.window_decorations = "NONE"
-config.enable_tab_bar = false
+config.enable_tab_bar = true
+config.use_fancy_tab_bar = false
+config.tab_bar_at_bottom = false
+config.hide_tab_bar_if_only_one_tab = false
+
+config.colors = {
+  tab_bar = {
+    background = '#000000', -- TODO: si puo mettere trasparente?
+    active_tab = {
+      bg_color = '#000000',
+      fg_color = '#ffffff',
+      intensity = 'Bold',
+    },
+    inactive_tab = {
+      bg_color = '#000000',
+      fg_color = '#808080',
+    },
+    inactive_tab_hover = {
+      bg_color = '#111111',
+      fg_color = '#ffffff',
+    },
+    new_tab = {
+      bg_color = '#000000',
+      fg_color = '#808080',
+    },
+    new_tab_hover = {
+      bg_color = '#111111',
+      fg_color = '#ffffff',
+    },
+  }
+}
+
+-- Status Right (Simulazione "NixOS - Username" stile tmux)
+wezterm.on('update-right-status', function(window, pane)
+  local username = os.getenv("USER") or os.getenv("LOGNAME") or "user"
+  local status = " NixOS - " .. username .. " "
+  window:set_right_status(wezterm.format({
+    { Background = { Color = '#000000' } },
+    { Foreground = { Color = '#808080' } },
+    { Text = status },
+  }))
+end)
+
 config.window_background_opacity = 0.9
 config.window_close_confirmation = 'NeverPrompt' -- confirm_os_window_close 0
 config.cursor_blink_rate = 500                   -- cursor_blink_interval 0.5
@@ -65,7 +107,7 @@ config.default_cursor_style = 'BlinkingBlock'    -- cursor_shape block
 config.audible_bell = 'Disabled'                 -- enable_audio_bell no
 config.hide_mouse_cursor_when_typing = true      -- mouse_hide_wait (wezterm nasconde il mouse durante la digitazione)
 config.scrollback_lines = 5000                   -- scrollback_lines 5000
-config.window_padding = {                        -- window_padding_width 10 10
+config.window_padding = {                        -- window_padding_width 10 10 TODO: non funziona
   left = 10,
   right = 10,
   top = 10,

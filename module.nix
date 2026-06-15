@@ -3,7 +3,6 @@
   wlib,
   lib,
   pkgs,
-  options,
   ...
 }:
 {

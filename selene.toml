@@ -1,0 +1,4 @@
+# Lua LSP configuraiton file
+std = ""
+[config]
+globals = ["require"]
