@@ -18,13 +18,13 @@ function M.apply(config, nixInfo)
     config.default_cursor_style = 'BlinkingBlock'
 
     -- Misc configs
-    config.front_end = nixInfo("WebGpu", "frontend")
+    config.front_end = "OpenGL" --nixInfo("WebGpu", "frontend")
     config.audible_bell = 'Disabled'
     config.hide_mouse_cursor_when_typing = true
     config.scrollback_lines = 5000
 
     --config.enable_wayland = false
-    config.animation_fps = 60
+    --config.animation_fps = 60
 end
 
 return M
