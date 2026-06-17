@@ -6,9 +6,10 @@ if lua_dir then
 end
 
 local wezterm = require('wezterm')
+local action = wezterm.action
 local config = wezterm.config_builder()
 
-require('options').apply(config, nixInfo)
+require('options').apply(config, action, nixInfo)
 require('keymaps').apply(config, wezterm, nixInfo)
 require('colorscheme').apply(config, wezterm, nixInfo)
 require('multiplexer').apply(config, wezterm)
