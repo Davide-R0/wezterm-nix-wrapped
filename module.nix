@@ -9,11 +9,6 @@
   imports = [ wlib.wrapperModules.wezterm ];
 
   options.settings = {
-    colorScheme = lib.mkOption {
-      type = lib.types.str;
-      default = "dank-theme";
-      description = "The wezterm color scheme";
-    };
     fontSize = lib.mkOption {
       type = lib.types.float;
       default = 14.0;
@@ -38,6 +33,12 @@
       type = lib.types.listOf lib.types.attrs;
       default = [ ];
       description = ''Register cutom keybinds (es: `{ key = "F11"; mods = "NONE"; action = lib.generators.mkLuaInline "wezterm.action.ToggleFullScreen"; }`)'';
+    };
+
+    colorScheme = lib.mkOption {
+      type = lib.types.str;
+      default = "dank-theme";
+      description = "The wezterm color scheme";
     };
   };
 

@@ -48,11 +48,13 @@ function M.apply(config, wezterm, nixInfo)
     wezterm.on('update-right-status', function(window, _) -- pane
         local username = os.getenv("USER") or os.getenv("LOGNAME") or "user"
         local status = " NixOS - " .. username .. " "
-        window:set_right_status(wezterm.format({
-            { Background = { Color = bg_color } },
-            { Foreground = { Color = '#808080' } },
-            { Text = status },
-        }))
+        window:set_right_status(
+            wezterm.format({
+                { Background = { Color = bg_color } },
+                { Foreground = { Color = '#808080' } },
+                { Text = status },
+            })
+        )
     end)
 end
 

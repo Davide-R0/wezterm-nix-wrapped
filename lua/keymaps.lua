@@ -21,12 +21,10 @@ function M.apply(config, wezterm, nixInfo)
         -- TODO: agigugnere keymaps per rinominare tabs e muovere tabs
         -- Spostamento tab
 
-
         -- Split orizzontale (tmux: prefix + ")
         { key = '"', mods = 'LEADER|SHIFT', action = act.SplitVertical { domain = 'CurrentPaneDomain' } },
         -- Split verticale (tmux: prefix + %)
         { key = '%', mods = 'LEADER|SHIFT', action = act.SplitHorizontal { domain = 'CurrentPaneDomain' } },
-        -- TODO: keys per chiudere uno split e per ridimensionarlo
         -- Navigazione tra split (stile vim/tmux)
         { key = 'h', mods = 'LEADER',       action = act.ActivatePaneDirection 'Left' },
         { key = 'l', mods = 'LEADER',       action = act.ActivatePaneDirection 'Right' },

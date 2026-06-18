@@ -19,7 +19,7 @@ function M.apply(config, action, nixInfo)
         default_cursor_style = 'BlinkingBlock',
 
         -- Misc configs
-        front_end = "OpenGL", --nixInfo("WebGpu", "frontend")
+        front_end = "OpenGL",
         audible_bell = 'Disabled',
         hide_mouse_cursor_when_typing = true,
         scrollback_lines = 5000,
