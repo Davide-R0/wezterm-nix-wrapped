@@ -9,7 +9,7 @@ local wezterm = require('wezterm')
 local action = wezterm.action
 local config = wezterm.config_builder()
 
-require('options').apply(config, action, nixInfo)
+require('options').apply(config, action, wezterm, nixInfo)
 require('keymaps').apply(config, wezterm, nixInfo)
 require('colorscheme').apply(config, wezterm, nixInfo)
 require('multiplexer').apply(config, wezterm)

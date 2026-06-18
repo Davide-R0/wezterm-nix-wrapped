@@ -1,6 +1,9 @@
 local M = {}
 
-function M.apply(config, action, nixInfo)
+function M.apply(config, action, wezterm, nixInfo)
+    -- Font
+    config.font = wezterm.font(nixInfo("Hack Nerd Font", "fontFamily"))
+
     -- Window configs
     config = {
         window_decorations = "NONE",
@@ -14,6 +17,7 @@ function M.apply(config, action, nixInfo)
         },
 
         -- Theme configs
+        --
         font_size = nixInfo(15.0, "fontSize"),
         cursor_blink_rate = 500,
         default_cursor_style = 'BlinkingBlock',
